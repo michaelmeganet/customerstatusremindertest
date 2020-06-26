@@ -18,6 +18,8 @@ if (isset($_SESSION['uploadMsg'])){
     $uploadMsg = $_SESSION['uploadMsg'];
     unset($_SESSION['uploadMsg']);
 }
+
+//---Update SESSION Checks--
 //check if update process or not
 if (isset($_SESSION['updateMsg'])){
     #unset($_SESSION['showTable']);
@@ -33,6 +35,18 @@ if(isset($_POST['showUpdResultBtn'])){
 if(isset($_POST['showUpdateTable'])){
     $showUpdateTable = $_POST['showUpdateTable'];
 }
+
+
+//---Remind SESSION Checks--
+if(isset($_SESSION['processRemindMsg'])){
+    $processRemindMsg = $_SESSION['processRemindMsg'];
+    unset($_SESSION['processRemindMsg']);
+}
+if(isset($_SESSION['error_arr_issue_reminder'])){
+    $error_reminderResult = $_SESSION['error_arr_issue_reminder'];
+    unset($_SESSION['error_arr_issue_reminder']);
+}
+#$_SESSION['result_arr_issue_reminder'] = $result_arr_issue_reminder;
 //END CHECK POST DATA HERE//
 ?>
 <form action="" method="post">
@@ -120,13 +134,12 @@ if (isset($_SESSION['pickoption'])){
         <span><br></span>
         <div class="container">
             <?php
-            if(isset($updateMsg)){
+            if(isset($processRemindMsg)){
                 ?>
                 <div class='alert alert-success'>
-                    <form action='' method='POST' id='showReminderResult'>
-                        <?php echo $reminderMsg; ?> 
-                        <input type="submit" value="Show Results" name="showReminderBtn" id='showReminderBtn'/>
-                        <input type='hidden' value='TRUE' name='showReminderTable' id='showReminderTable'/>
+                    <form action='testPrint.php' method='POST' id='showReminderResult'>
+                        <?php echo $processRemindMsg; ?> 
+                        <input type="submit" value="Issue Reminders" name="issueReminderBtn" id='issueReminderBtn'/>
                     </form>
                 </div>
                 <?php
@@ -163,21 +176,23 @@ if (isset($_SESSION['pickoption'])){
             <!--End Import CSV Form Area-->
         </div>
         <br>
-        <!--Show Table Area-->
+        <!--Show Error List Table Area-->
         <div class="container"> 
         <?php
-        if(isset($showReminderTable)){
-            include "issue-reminder.php";//Calls table for results
+        if(isset($processRemindMsg)){
+            $countArr = count($error_reminderResult);
+            echo " <h4><label class=\"label label-danger\">Found $countArr records that cannot be processed :</label></h4><br>";
+            include "error-remind-table.php";//Calls table for results
         }
         ?>
         </div>
-        <!--End Show Table Area-->
+        <!--End Show Error List Table Area-->
         
         
         
         
         
-        <!-- Begin show testReport area-->
+        <!-- Begin show testReport area--
         <form action='testPrint.php' method="POST" id='testPrint'>
             Insert name here (will be shown in the test report) : <input type="text" name='tempName' id='tempName'/>
             <input type='submit' name='submitPrint' id='submitPrint' value='Submit'/>

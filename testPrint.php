@@ -1,9 +1,5 @@
 <?php
 session_start();
-if ($_POST){
-    $tempName = $_POST['tempName'];
-    #$_SESSION['tempname'] = $tempName;
-}
 require 'vendor/autoload.php'; //required, this is to autoload composer.
 use Dompdf\Dompdf;
 
@@ -11,23 +7,8 @@ use Dompdf\Dompdf;
 // https://github.com/dompdf/dompdf#quick-start
 $dompdf = new Dompdf();
     ob_start();  //reference for using output buffer : https://stackoverflow.com/questions/50695307/render-html-with-dynamic-variable-values-with-dompdf
-    for ($i = 0; $i < 3; $i++){
-        switch ($i){
-            case '0':
-                echo "<div>";
-                break;
-            default:
-                echo "<div style='page-break-before: always'>";
-                break;
-        }
-        ?>
-            <?php
-            #include "formReport.php";
-            include "letterhtml2.html";
-            ?>
-        </div>
-        <?php
-    }
+    include "formReport.php";
+    #include "letterhtml.html";
     #require('./formReport.php');
     $dompdf->set_option('isHtml5ParserEnabled', true);
     $html = ob_get_contents();
