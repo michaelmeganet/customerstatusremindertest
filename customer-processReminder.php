@@ -94,7 +94,7 @@ include_once('csv-import.php');
         //<-- Enf Process Update Customer List-->//
         $_SESSION['processRemindMsg']="Succesfully processed {$resultCount} records.";
         #header('location: index2.php');
-        #echo '<META HTTP-EQUIV="refresh" content="0;URL=index.php">'; //using META tags instead of headers because headers didn't work in PHP5.3
+        echo '<META HTTP-EQUIV="refresh" content="0;URL=index.php">'; //using META tags instead of headers because headers didn't work in PHP5.3
                       
         ?>
 <?php
