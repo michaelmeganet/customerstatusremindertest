@@ -8,7 +8,8 @@ use Dompdf\Dompdf;
 $dompdf = new Dompdf();
     ob_start();  //reference for using output buffer : https://stackoverflow.com/questions/50695307/render-html-with-dynamic-variable-values-with-dompdf
     include "formReport.php";
-    #include "letterhtml.html";
+    #include 'remindhtml.html';
+    ##include "letterhtml.html";
     #require('./formReport.php');
     $dompdf->set_option('isHtml5ParserEnabled', true);
     $html = ob_get_contents();

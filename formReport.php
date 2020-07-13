@@ -4,50 +4,84 @@ if(isset($_SESSION['result_arr_issue_reminder'])){
     $arr_dataReminder = $_SESSION['result_arr_issue_reminder'];
     unset($_SESSION['result_arr_issue_reminder']);
     foreach($arr_dataReminder as $row_dataReminder){
-        $dat_co_name = $row_dataReminder['co_name'];
-        $dat_address1 = $row_dataReminder['address1'];
-        $dat_address2 = $row_dataReminder['address2'];
-        $dat_address3 = $row_dataReminder['address3'];
-        if($count == 0){
-            echo "<div>";
-        }else{
-            echo "<div style='page-break-before: always'>";
-        }
+        #echo "<pre>";
+        #print_r($row_dataReminder);
+        #echo "</pre>";
+        extract($row_dataReminder, EXTR_PREFIX_ALL, 'dat');
+        
+        #$dat_co_name = $row_dataReminder['co_name'];
+        #$dat_address1 = $row_dataReminder['address1'];
+        #$dat_address2 = $row_dataReminder['address2'];
+        #$dat_address3 = $row_dataReminder['address3'];
+        #if($count == 0){
+        #    echo "<div>";
+        #}else{
+        #    echo "<div style='page-break-before: always'>";
+        #}
         ?>
         <div class="container">
-        <table border="1" style="align-content: center;max-width: 2480px;width: 100%">
-            <thead>
-                <tr>
-                    <th style="text-align: center;"colspan="2">THIS IS A TEST REPORT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style="width:40%; font-size: 10px">
-                        <?php
-                        echo "$dat_co_name <br>"
-                           . "$dat_address1<br>"
-                           . "$dat_address2<br>"
-                           . "$dat_address3";
-                        ?>
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem et tortor consequat id porta nibh. Quis ipsum suspendisse ultrices gravida dictum fusce ut placerat. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Faucibus turpis in eu mi bibendum neque. Nisl tincidunt eget nullam non nisi. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Pellentesque adipiscing commodo elit at imperdiet dui accumsan. Dolor sit amet consectetur adipiscing elit duis tristique. Id volutpat lacus laoreet non curabitur gravida arcu ac tortor.
-
-Etiam tempor orci eu lobortis elementum nibh tellus. Facilisis gravida neque convallis a. Parturient montes nascetur ridiculus mus mauris vitae ultricies leo integer. Nunc non blandit massa enim nec dui nunc mattis enim. Neque sodales ut etiam sit amet nisl purus in mollis. Quisque egestas diam in arcu cursus euismod quis viverra. Nulla aliquet enim tortor at auctor urna nunc id. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Sed odio morbi quis commodo odio aenean sed adipiscing. Morbi enim nunc faucibus a pellentesque. Proin gravida hendrerit lectus a. Mi tempus imperdiet nulla malesuada pellentesque elit eget. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Enim nulla aliquet porttitor lacus luctus. Ac turpis egestas maecenas pharetra.
-
-Amet nulla facilisi morbi tempus iaculis. Augue eget arcu dictum varius duis at. Et netus et malesuada fames ac turpis. Nibh mauris cursus mattis molestie a iaculis at. Etiam tempor orci eu lobortis elementum nibh tellus molestie nunc. Morbi non arcu risus quis varius quam. Eu ultrices vitae auctor eu augue ut. Aliquam id diam maecenas ultricies mi eget mauris pharetra et. Vel pretium lectus quam id leo in. Etiam sit amet nisl purus in mollis nunc. Tellus mauris a diam maecenas sed enim ut sem viverra. Nibh tellus molestie nunc non blandit. Faucibus interdum posuere lorem ipsum dolor sit amet. Tincidunt vitae semper quis lectus nulla. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Est ultricies integer quis auctor elit sed vulputate. Ac orci phasellus egestas tellus rutrum tellus pellentesque. Eu lobortis elementum nibh tellus molestie nunc non blandit massa. Tortor at auctor urna nunc id cursus metus aliquam eleifend.
-
-Metus aliquam eleifend mi in nulla. Accumsan sit amet nulla facilisi morbi tempus iaculis urna. Semper eget duis at tellus at urna condimentum mattis pellentesque. Ipsum a arcu cursus vitae congue mauris rhoncus. Elementum tempus egestas sed sed risus pretium quam. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel. Turpis egestas integer eget aliquet nibh praesent tristique. Morbi tempus iaculis urna id. Cras adipiscing enim eu turpis egestas pretium. Vitae semper quis lectus nulla at volutpat diam ut. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Vitae tortor condimentum lacinia quis. Fermentum iaculis eu non diam phasellus. Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio.
-
-Ut tellus elementum sagittis vitae et. Egestas congue quisque egestas diam. Blandit massa enim nec dui nunc mattis enim. Elementum integer enim neque volutpat ac. Pellentesque id nibh tortor id aliquet lectus proin nibh. Velit aliquet sagittis id consectetur purus ut faucibus pulvinar. Elementum eu facilisis sed odio morbi. Suspendisse potenti nullam ac tortor vitae purus faucibus. Tellus orci ac auctor augue mauris augue neque gravida. Urna molestie at elementum eu facilisis sed odio morbi. Ornare quam viverra orci sagittis eu volutpat odio facilisis. In arcu cursus euismod quis viverra nibh cras. Faucibus turpis in eu mi. Et pharetra pharetra massa massa ultricies mi quis. Hendrerit gravida rutrum quisque non tellus orci ac auctor. Placerat vestibulum lectus mauris ultrices eros in cursus. Integer vitae justo eget magna fermentum iaculis eu non. At risus viverra adipiscing at. Eu lobortis elementum nibh tellus molestie nunc non.
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+            <?php
+            if($count == 0){
+                echo "<div>";
+            }else{
+                echo "<div style='page-break-before: always;max-width: 2480px; width:100%''>";
+            }
+            ?>
+                <div style='margin-bottom: -20px;'>
+                    <img src="./assets/images/phhlogoemail.png" alt="Cannot found image" width="300" height='28' style="display: block">
+                </div>
+                <div style="font-family: times-new-roman;margin: -2px 47px 0px 47px;">
+                    <p style='font-size:12px'>
+                        PHH METAL 1 SDN BHD (176257-T)</br>
+                        Lot 2, Jalan CJ 1/6C, Kawasan Perusahaan Cheras Jaya, 43200, Selangor</br>
+                        Tel: +603-9075 6800<span style='padding-right: 50px'>&nbsp;</span>Fax: +603-9075 6866</br>				
+                    </p>
+                    <p>Our Ref: <?php echo $dat_our_ref_no; ?></p>
+                    <p><?php echo $dat_issue_date;?></p>
+                    <p><strong><?php echo $dat_co_name;?> </strong> <br />
+                        <?php echo $dat_address1;?> <br />
+                        <?php echo $dat_address2;?><br />
+                        <?php echo $dat_address3;?></p>
+                    <p>Dear Sir/Madam</p>
+                    <p><span style="text-decoration: underline;"><strong>RE: OVERDUE ACCOUNT- RM <?php echo number_format($dat_overdue_amount,2, '.', ',');?></strong></span></p>
+                    <p style="text-align: justify;">We refer to the above subject matter.</p>
+                    <p style="text-align: justify;">
+                        We would like to bring to your attention that your account is <strong>OVERDUED</strong>. 
+                        Please find the attached statement for your kind and needful action.
+                    </p>
+                    <p style="text-align: justify;">
+                        Based on our records, your account has exceeded the approved credit terms of 60 Days&nbsp;
+                        and the amount in arrears is <span style="text-decoration: underline;"><strong>RM <?php echo number_format($dat_overdue_amount,2, '.', ',');?></strong></span> 
+                        (<strong>Ringgit Malaysia: <?php echo $dat_number_text_amount;?></strong>) 
+                        as at <span style="text-decoration: underline;"><strong><?php echo $dat_due_date; ?></strong></span>.&nbsp;
+                    </p>
+                    <p style="text-align: justify;">
+                        Please notify us of any discrepancies in our record within fourteen (14) days from the date of this letter. 
+                        If we do not receive any feedback from you then the above overdue amount will be considered accurate and correct.
+                    </p>
+                    <p style="text-align: justify;">
+                        We provide two options for you to settle the outstanding amount:-
+                    </p>
+                    <ol>
+                        <li style="text-align: justify;"><span style="text-decoration: underline;">Credit Card Facility</span></li>
+                        <li style="text-align: justify;"><span style="text-decoration: underline;">Installment Payment</span></li>
+                    </ol>
+                    <p>
+                        Kindly arrange and remit the payment to us immediately. 
+                        Fail to do so, we are determined to take the next course of recovery action by entering your name as a defaulter into&nbsp;
+                        <strong>CTOS DATA SYSTEMS SDN BHD ('CTOS').</strong>
+                    </p>
+                    <p>
+                        Please do not hesitate to contact the undersigned,&nbsp;
+                        <strong><?php echo $dat_person_in_charge;?></strong> (Credit Control Department) should you need further clarification.
+                    </p>
+                    <p>Your kind co-operation on this matter will be deeply appreciated.</p>
+                    <p>&nbsp;</p>
+                    <p>Thank you,</p>
+                    <p><strong>PHH METAL 1 SDN BHD</strong></p>
+                    <p>This is a computer generated letter, no human signature is required.</p>
+                </div>
+            </div>
         </div>
         <?php
         echo '</div>';

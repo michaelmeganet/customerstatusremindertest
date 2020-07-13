@@ -15,7 +15,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload') {
 
         // sanitize file-name
         //$newFileName = md5(time() . $fileName) . '.' . $fileExtension;
-        $newFileName = 'customer_list_update' . '.' . $fileExtension;
+        $newFileName = $fileName . '_uploaded.' . $fileExtension;
         // check if file has one of the following extensions
         $allowedfileExtensions = array('csv');
 
