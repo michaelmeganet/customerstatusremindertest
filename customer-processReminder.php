@@ -40,7 +40,7 @@ function valueCheck($inputArray){
 }
 
 //<-- Begin Process Update Customer List-->//
-    echo "<b>List of data in {$_SESSION['uploadFileName']} : </b><br>";
+    #echo "<b>List of data in {$_SESSION['uploadFileName']} : </b><br>";
     $result_arr_issue_reminder = array();
     $error_arr_issue_reminder = array();
     
@@ -48,9 +48,9 @@ function valueCheck($inputArray){
     foreach($arr_upload_file as $row_reminder){
         try {
         
-            echo "<pre>";
-            print_r($row_reminder);
-            echo "</pre><br>"; 
+            #echo "<pre>";
+            #print_r($row_reminder);
+            #echo "</pre><br>"; 
             $accno = $row_reminder['accno'];
             $cid = $row_reminder['cid'];
             $co_name = $row_reminder['co_name'];
@@ -63,7 +63,7 @@ function valueCheck($inputArray){
             $result_checkVal = valueCheck($row_reminder);
             
             //get necessary datas from database
-            echo "\$result_checkKey = $result_checkKey and \$result_checkVal = $result_checkVal<br>";
+            #echo "\$result_checkKey = $result_checkKey and \$result_checkVal = $result_checkVal<br>";
             if ($result_checkKey == 'Key OK' && $result_checkVal == 'Value OK'){
                 
                 $our_ref_no = $row_reminder['our_ref_no'];
@@ -75,7 +75,7 @@ function valueCheck($inputArray){
                 
                 $readResult = readCustomer_byAccno($accno);
                 if($readResult != 'no data'){
-                    echo "Data exists, process Reminder...<br>";
+                    #echo "Data exists, process Reminder...<br>";
                     //3.a Check situational problems
                     $cid = $readResult['cid'];
                     $address1 = $readResult['address1'];
@@ -84,7 +84,7 @@ function valueCheck($inputArray){
                     $attn_sales = $readResult['attn_sales'];
                     //check if reminder == yes
                     if($reminder == 'yes'){
-                        echo "process reminder<br>";
+                        #echo "process reminder<br>";
                         $errCheck = 'no';
                         $arr_reminder_result = array('cid' => $cid, 'accno' => $accno, 'co_name' => $co_name,
                                                         'address1' => $address1, 'address2' => $address2,
@@ -95,19 +95,19 @@ function valueCheck($inputArray){
                                                       );
                         $result_arr_issue_reminder[] = $arr_reminder_result;
                     }else{
-                        echo "reminder is not yes<br>";
+                        #echo "reminder is not yes<br>";
                         Throw new Exception("Reminder do not Issue");
                     }
                     
                 }else{
-                    echo "cannot find data with accno<br>";
+                    #echo "cannot find data with accno<br>";
                     Throw new Exception("Cannot find Data for $accno / $co_name");
                 }
             }
             
         } catch (Exception $e) {
             $errMessage = $e->getMessage();
-            echo "$errMessage<br>";
+            #echo "$errMessage<br>";
             $error_result = array('cid' => $cid, 'accno' => $accno, 'co_name' => $co_name,
                                 'current_status' => $current_status, 'Detail' => $errMessage
                               );
@@ -120,7 +120,7 @@ function valueCheck($inputArray){
     //<-- Enf Process Update Customer List-->//
     $_SESSION['processRemindMsg']="Succesfully processed {$resultCount} records.";
     #header('location: index2.php');
-    #echo '<META HTTP-EQUIV="refresh" content="0;URL=index.php">'; //using META tags instead of headers because headers didn't work in PHP5.3
+    echo '<META HTTP-EQUIV="refresh" content="0;URL=index.php">'; //using META tags instead of headers because headers didn't work in PHP5.3
                       
 /*
 

@@ -2,7 +2,7 @@
 if(isset($_SESSION['result_arr_issue_reminder'])){
     $count = 0;
     $arr_dataReminder = $_SESSION['result_arr_issue_reminder'];
-    unset($_SESSION['result_arr_issue_reminder']);
+    #unset($_SESSION['result_arr_issue_reminder']);
     foreach($arr_dataReminder as $row_dataReminder){
         #echo "<pre>";
         #print_r($row_dataReminder);
@@ -31,7 +31,7 @@ if(isset($_SESSION['result_arr_issue_reminder'])){
                     <img src="./assets/images/phhlogoemail.png" alt="Cannot found image" width="300" height='28' style="display: block">
                 </div>
                 <div style="font-family: times-new-roman;margin: -2px 47px 0px 47px;">
-                    <p style='font-size:12px'>
+                    <p style='font-size:12px;padding-bottom: 5px'>
                         PHH METAL 1 SDN BHD (176257-T)</br>
                         Lot 2, Jalan CJ 1/6C, Kawasan Perusahaan Cheras Jaya, 43200, Selangor</br>
                         Tel: +603-9075 6800<span style='padding-right: 50px'>&nbsp;</span>Fax: +603-9075 6866</br>				
@@ -76,6 +76,7 @@ if(isset($_SESSION['result_arr_issue_reminder'])){
                         <strong><?php echo $dat_person_in_charge;?></strong> (Credit Control Department) should you need further clarification.
                     </p>
                     <p>Your kind co-operation on this matter will be deeply appreciated.</p>
+                    <p>&nbsp;</p>
                     <p>&nbsp;</p>
                     <p>Thank you,</p>
                     <p><strong>PHH METAL 1 SDN BHD</strong></p>
