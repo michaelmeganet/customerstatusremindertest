@@ -211,7 +211,7 @@ if (isset($_SESSION['pickoption'])) {
 </body>
 <script>
     function reminderPDF(form) {
-        window.open('testPrint.php', 'PDFreminder', 'width=800,height=600,resizeable,scrollbars');
+        window.open('testPrint.php', 'PDFreminder');
         form.target = 'PDFreminder';
         //window.location.reload();
     }
